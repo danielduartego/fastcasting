@@ -35,6 +35,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem "font-awesome-rails"
 gem "bootstrap-sass"
 gem 'simple_form'
+gem "simple_calendar", "~> 2.0"
 #upload avatar
 gem 'carrierwave'
 #para formatar fotos de varios tamanhos
