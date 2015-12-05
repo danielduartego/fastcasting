@@ -5,13 +5,15 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by_email params[:email]
-    if user && user.authenticate(params[:password])
-
-      if session[:user_id] = user.id boolean :nil
-        redirect_to root_path
-      else
-        redirect_to "/users/new"
-      end
+     if user && user.authenticate(params[:password]) && user.role.nil?
+       session[:user_id] = user.id
+       redirect_to root_path, notice: "logged in"
+    elsif user && user.authenticate(params[:password]) && user.role?
+      session[:user_id] = user.id
+      redirect_to new_home_path, notice: "logged in"
+    elsif user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect_to new_session_path, notice: "logged in"
     else
       flash[:alert] = "wrong, try again"
       render :new
@@ -24,6 +26,3 @@ class SessionsController < ApplicationController
   end
 
 end
-
-
-#fazer o current_user_bg, current_user_agent e current_user_director, cada um baseado no boolean nill, true e false.

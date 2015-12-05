@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root "home#index"
 
-  resources :home, only: [:index]
+  resources :home, only: [:index, :new]
   resources :users, only: [:new, :create]
 
   resources :sessions, only: [:new, :create, :destroy] do

@@ -1,9 +1,40 @@
-<h1>Sign Up</h1>
-<%= simple_form_for @user do |f| %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :email %>
-  <%= f.input :password %>
-  <%= f.input :password_confirmation %>
-  <%= f.submit class: "btn btn-primary" %>
-<% end %>
+<div class="row">
+  <div class="col-md-4">
+    <h1>Sign Up - BG</h1>
+    <%= simple_form_for @user do |f| %>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :email %>
+      <%= f.input :password %>
+      <%= f.input :password_confirmation %>
+      <%= f.submit class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
+  <div class="col-md-4">
+    <h1>Sign Up - Agent</h1>
+    <%= simple_form_for @user do |f| %>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :email %>
+      <%= f.input :password %>
+      <%= f.input :password_confirmation %>
+      <%= f.hidden_field :role, value: true %>
+      <%= f.submit class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
+  <div class="col-md-4">
+    <h1>Sign Up - Dir</h1>
+    <%= simple_form_for @user do |f| %>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :email %>
+      <%= f.input :password %>
+      <%= f.input :password_confirmation %>
+      <%= f.hidden_field :role, value: false %>
+      <%= f.submit class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
+</div>
