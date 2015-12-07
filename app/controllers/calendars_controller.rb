@@ -6,6 +6,7 @@ class CalendarsController < ApplicationController
   # GET /calendars.json
   def index
     @calendars = Calendar.all
+    @calendar = Calendar.new
   end
 
   # GET /calendars/1

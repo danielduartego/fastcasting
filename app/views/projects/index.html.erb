@@ -1,15 +1,9 @@
-<h3>index vai no canto esquerdo com a lista de todos projects</h3>
+<h3>All Projects</h3>
 
-<div style="background-color:#ff0000; width:500px; hidth:500%">
-
-  <table>
   <% @projects.each do |p| %>
-  	<tr>
-  		<td><%= p.name %></td>
-  		<td><%= p.shoot_date %></td>
-  		<td><%= p.description %></td>
-  	</tr>
-  <% end %>
-  </table>
-
+<div class="well">
+  	<%= link_to p.name, project_path(p) %>
+  	<%= p.shoot_date %>
+  	<%= p.description %>
 </div>
+  <% end %>

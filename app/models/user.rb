@@ -7,4 +7,10 @@ class User < ActiveRecord::Base
   has_many :projects, dependent: :nullify
   belongs_to :project
 
+  mount_uploader :image, ImageUploader
+
+  def full_name
+    "#{first_name} #{last_name}".strip
+  end
+
 end

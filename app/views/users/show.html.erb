@@ -1,45 +1,40 @@
-<h1 class="text-center">USER SHOW</h1>
-<h3 class="text-center"> <%= @user.first_name %> </h3>
+<br>
+<h2 class="text-center"> <%= @user.full_name %> </h3>
+<br>
+
+<div class="text-center">
+  <% if @user.image.present? %>
+  <%= image_tag @user.image.url(:medium), class: "img-circle" %>
+  <% end %>
+</div>
 
 
-<div class="col-md-4"></div>
+<div class="col-md-4">
+  <%= simple_form_for(@calendar) do |f| %>
+
+    <div class="form-inputs">
+      <%= f.input :name %>
+      <%= f.input :start_time %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+</div>
 <div class="col-md-4">
 
-
-<table>
-
-<tbody>
-  <% @calendars.each do |calendar| %>
-    <tr>
-      <td><%= calendar.name %></td>
-      <td><%= calendar.start_time %></td>
-      <td><%= link_to 'Show', calendar %></td>
-      <td><%= link_to 'Edit', edit_calendar_path(calendar) %></td>
-      <td><%= link_to 'Destroy', calendar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</tbody>
-</table>
-
 <br>
-
-<%= link_to 'New Calendar', new_calendar_path %>
-
-
-<br>
------------------------------------------
-
-
 
 <%= month_calendar events: @calendars do |date, calendars| %>
-<p class="text-center"><%= date.strftime(" %d") %></p>
+    <div class="circle small shape"><%= date.strftime("%d") %></div>
 
 <% calendars.each do |calendar| %>
   <div>
-    <%= calendar.name %>
-    <div class="text-center"><span class="<%= label_class(calendar.aasm_state) %>">
+      <%= calendar.name %>
+    <div class="<%= label_class(calendar.aasm_state) %>">
       <%= link_to calendar.aasm_state, calendar_status_index_path(calendar),
-                method: :post  %></span></div>
+                method: :post  %></div>
   </div>
 <% end %>
 <% end %>

@@ -61,11 +61,11 @@
   .wday-6 {}
 
   .today {
-    background: #FFFFC0;
+    // background: #FFFFC0;
   }
 
   .past {
-    background: #f3f3f3;
+    // background: #f3f3f3;
   }
   .future {
     // background: green;
@@ -74,10 +74,10 @@
   .start-date {}
 
   .prev-month {
-    background: #DDD;
+    // background: #DDD;
   }
   .next-month {
-    background: #DDD;
+    // background: #DDD;
   }
   .current-month {}
 
@@ -86,22 +86,31 @@
   }
 
   .black-status {
-    width: 100px;
     background-color: black;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
   }
 
   .green-status {
-    width: 100px;
     background-color: green;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
   }
 
   .orange-status {
-    width: 100px;
     background-color: orange;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
   }
 
   .red-status {
-    width: 100px;
     background-color: red;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
   }
+
 }
