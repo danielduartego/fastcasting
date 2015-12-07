@@ -8,17 +8,25 @@
 </head>
 <body>
 
-  <nav>
+<nav class="nav navbar-inverse">
+  <div class="container-fluid">
 
-    <% if user_signed_in? %>
-       <%= current_user.first_name %>|
-       <%= link_to "Logout", sessions_path, method: :delete%>
-    <% else %>
-      <%= link_to "Sign up", new_user_path %> |
-      <%= link_to "Login", new_session_path %>
-    <% end %>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <% if user_signed_in? %>
+           <li><%= current_user.first_name %></li>
+           <li><%= link_to "Logout", sessions_path, method: :delete%></li>
+           <li><%= link_to "Create a Project", new_project_path %></li>
+           <li><%= link_to "Calendars", calendars_path %></li>
+        <% else %>
+          <li><%= link_to "Sign up", new_user_path %></li>
+          <li><%= link_to "Login", new_session_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-  </nav>
 <%= render "/layouts/flash_messages" %>
 <%= yield %>
 

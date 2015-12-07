@@ -1,16 +1,22 @@
 Rails.application.routes.draw do
-  resources :calendars
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  root "home#index"
+  root "dashboards#index"
 
-  resources :home, only: [:index, :new]
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :show]
+
+  resources :calendars do
+    resources :status, only: [:create]
+  end
 
   resources :sessions, only: [:new, :create, :destroy] do
     delete :destroy, on: :collection
   end
+
+  resources :dashboards
+
+  resources :projects
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

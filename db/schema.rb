@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151205233344) do
+ActiveRecord::Schema.define(version: 20151206221834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,22 @@ ActiveRecord::Schema.define(version: 20151205233344) do
     t.datetime "start_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "aasm_state"
+    t.integer  "user_id"
   end
+
+  add_index "calendars", ["user_id"], name: "index_calendars_on_user_id", using: :btree
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "name"
+    t.date     "shoot_date"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
@@ -56,8 +71,13 @@ ActiveRecord::Schema.define(version: 20151205233344) do
     t.float    "inseam"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "project_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["project_id"], name: "index_users_on_project_id", using: :btree
 
+  add_foreign_key "calendars", "users"
+  add_foreign_key "projects", "users"
+  add_foreign_key "users", "projects"
 end

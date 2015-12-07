@@ -1,7 +1,13 @@
 class UsersController < ApplicationController
 
+  before_action :authenticate_user, only: [:show]
+
   def new
     @user = User.new
+  end
+
+  def index
+    @user = User.all
   end
 
   def create
@@ -14,6 +20,11 @@ class UsersController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @user = User.find params[:id]
+    @calendars = @user.calendars
   end
 
 end

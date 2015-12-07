@@ -36,6 +36,8 @@ gem "font-awesome-rails"
 gem "bootstrap-sass"
 gem 'simple_form'
 gem "simple_calendar", "~> 2.0"
+gem 'aasm'
+gem 'cancancan'
 #upload avatar
 gem 'carrierwave'
 #para formatar fotos de varios tamanhos

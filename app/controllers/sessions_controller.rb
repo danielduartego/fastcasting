@@ -5,15 +5,18 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by_email params[:email]
+    # user bg
      if user && user.authenticate(params[:password]) && user.role.nil?
        session[:user_id] = user.id
-       redirect_to root_path, notice: "logged in"
+       redirect_to user_path(current_user), notice: "welcome background performer"
+    # user agent
     elsif user && user.authenticate(params[:password]) && user.role?
       session[:user_id] = user.id
-      redirect_to new_home_path, notice: "logged in"
+      redirect_to dashboard_path(current_user), notice: "welcome director"
+    # user diretor
     elsif user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to new_session_path, notice: "logged in"
+      redirect_to dashboard_path(current_user), notice: "welcome casting agent"
     else
       flash[:alert] = "wrong, try again"
       render :new
@@ -22,7 +25,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path
+    redirect_to new_session_path
   end
 
 end

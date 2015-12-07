@@ -1,6 +1,7 @@
 class CalendarsController < ApplicationController
   before_action :set_calendar, only: [:show, :edit, :update, :destroy]
 
+
   # GET /calendars
   # GET /calendars.json
   def index
@@ -21,11 +22,12 @@ class CalendarsController < ApplicationController
   def edit
   end
 
+
   # POST /calendars
   # POST /calendars.json
   def create
     @calendar = Calendar.new(calendar_params)
-
+    @calendar.user = current_user
     respond_to do |format|
       if @calendar.save
         format.html { redirect_to @calendar, notice: 'Calendar was successfully created.' }

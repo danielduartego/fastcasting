@@ -61,19 +61,17 @@
   .wday-6 {}
 
   .today {
-    // background: #FFFFC0;
+    background: #FFFFC0;
   }
 
   .past {
-    background: #ffffff;
+    background: #f3f3f3;
   }
   .future {
     // background: green;
   }
 
-  .start-date {
-
-  }
+  .start-date {}
 
   .prev-month {
     background: #DDD;
@@ -87,7 +85,23 @@
     // background: blue;
   }
 
-  .fa .green {
+  .black-status {
+    width: 100px;
+    background-color: black;
+  }
+
+  .green-status {
+    width: 100px;
     background-color: green;
+  }
+
+  .orange-status {
+    width: 100px;
+    background-color: orange;
+  }
+
+  .red-status {
+    width: 100px;
+    background-color: red;
   }
 }

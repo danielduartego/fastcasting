@@ -1,14 +1,8 @@
-<h1>Listing Calendars</h1>
+<div class="">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Start time</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
   <tbody>
     <% @calendars.each do |calendar| %>
       <tr>
@@ -27,7 +21,8 @@
 <%= link_to 'New Calendar', new_calendar_path %>
 
 
----------------------------------------
+<br>
+-----------------------------------------
 
 
 
@@ -37,7 +32,17 @@
   <% calendars.each do |calendar| %>
     <div>
       <%= calendar.name %>
+      <div class="text-center"><span class="<%= label_class(calendar.aasm_state) %>">
+        <%= link_to calendar.aasm_state, calendar_status_index_path(calendar),
+                  method: :post  %></span></div>
     </div>
   <% end %>
 <% end %>
--------------------------------------------
+
+
+
+
+
+  </div>
+  <div class="col-md-4"></div>
+</div>

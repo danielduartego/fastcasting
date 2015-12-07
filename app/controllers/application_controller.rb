@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user
     unless user_signed_in?
-      redirect_to new_session_path, alert: "please sign in!"
+      redirect_to new_session_path, alert: "Please log in!"
     end
   end
 
@@ -22,5 +22,3 @@ class ApplicationController < ActionController::Base
   helper_method :user_signed_in?
 
 end
-
-#fazer o current_user_bg, current_user_agent e current_user_director, cada um baseado no boolean nill, true e false.
