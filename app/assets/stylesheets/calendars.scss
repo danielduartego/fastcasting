@@ -3,11 +3,12 @@
     -webkit-border-horizontal-spacing: 0px;
     -webkit-border-vertical-spacing: 0px;
     // background-color: rgba(0, 0, 0, 0);
-    // border: 0px solid rgb(221, 221, 221);
+    // border: 1px solid rgb(221, 221, 221);
     // border-collapse: collapse;
     // box-sizing: border-box;
     // max-width: 100%;
     // width: 100%;
+
   }
 
   tr {
@@ -16,35 +17,33 @@
 
   th {
     padding: 6px;
+    border-bottom: 0px solid rgb(221, 221, 221);
+    border-collapse: collapse;
+    border-left: 0px solid rgb(221, 221, 221);
+    border-right: 0px solid rgb(221, 221, 221);
+    border-top: 0px none rgb(51, 51, 51);
+    box-sizing: border-box;
     text-align: center;
-    // border-bottom: 2px solid rgb(221, 221, 221);
-    // border-collapse: collapse;
-    // border-left: 1px solid rgb(221, 221, 221);
-    // border-right: 1px solid rgb(221, 221, 221);
-    // border-top: 0px none rgb(51, 51, 51);
-    // box-sizing: border-box;
-    // text-align: left;
   }
 
   td {
     padding: 6px;
     vertical-align: center;
-    // width: 14%;
+    width: 14%;
 
-    // border: 1px solid #ddd;
-    // border-top-color: rgb(221, 221, 221);
-    // border-top-style: solid;
-    // border-top-width: 1px;
-    // border-right-color: rgb(221, 221, 221);
-    // border-right-style: solid;
-    // border-right-width: 1px;
-    // border-bottom-color: rgb(221, 221, 221);
-    // border-bottom-style: solid;
-    // border-bottom-width: 1px;
-    // border-left-color: rgb(221, 221, 221);
-    // border-left-style: solid;
-    // border-left-width: 1px;
-    border-radius: 100px;
+    border: 1px solid rgb(221, 221, 221);
+    border-top-color: rgb(221, 221, 221);
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-right-color: rgb(221, 221, 221);
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-bottom-color: rgb(221, 221, 221);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color: rgb(221, 221, 221);
+    border-left-style: solid;
+    border-left-width: 1px;
   }
 
   .day {
@@ -74,43 +73,32 @@
   .start-date {}
 
   .prev-month {
-    // background: #DDD;
+    background: #DDD;
   }
   .next-month {
-    // background: #DDD;
+    background: #DDD;
   }
   .current-month {}
 
   .has-events {
-    // background: blue;
-  }
-
-  .black-status {
-    background-color: black;
-    width: 40px;
-    height: 40px;
-    border-radius: 100px;
-  }
-
-  .green-status {
     background-color: green;
-    width: 40px;
-    height: 40px;
-    border-radius: 100px;
   }
 
-  .orange-status {
-    background-color: orange;
-    width: 40px;
-    height: 40px;
-    border-radius: 100px;
+  .btn-cal-user {
+    // border-radius: 100px;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid;
+    border-color: rgba(0, 0, 0, 0);
+    width: 55px;
+    height: 55px;
   }
 
-  .red-status {
-    background-color: red;
-    width: 40px;
-    height: 40px;
-    border-radius: 100px;
+  .icon-big {
+    color: #fff;
+    width: 10px;
+    font-size: 35px;
   }
+
+
 
 }

@@ -1,19 +1,19 @@
 
   <div class="col-md-4">
-    <h1>Sign Up - BG</h1>
+    <h1 class="ui header text-center">Sign Up - BG</h1>
     <%= simple_form_for @user do |f| %>
       <%= f.input :first_name %>
       <%= f.input :last_name %>
       <%= f.input :email %>
       <%= f.input :password %>
       <%= f.input :password_confirmation %>
-      <%= f.input :image %>
-      <%= f.submit class: "btn btn-primary" %>
+      <%= f.input :image, class: "file-custom" %>
+      <%= f.submit class: "btn btn-success-outline" %>
     <% end %>
   </div>
 
   <div class="col-md-4">
-    <h1>Sign Up - Agent</h1>
+    <h1 class="ui header text-center">Sign Up - Agent</h1>
     <%= simple_form_for @user do |f| %>
       <%= f.input :first_name %>
       <%= f.input :last_name %>
@@ -22,12 +22,14 @@
       <%= f.input :password_confirmation %>
       <%= f.input :image %>
       <%= f.hidden_field :role, value: false %>
-      <%= f.submit class: "btn btn-primary" %>
+      <%= f.submit class: "positive ui button" %>
     <% end %>
   </div>
 
+
+
   <div class="col-md-4">
-    <h1>Sign Up - Dir</h1>
+    <h1 class="ui header text-center">Sign Up - Dir</h1>
     <%= simple_form_for @user do |f| %>
       <%= f.input :first_name %>
       <%= f.input :last_name %>
@@ -36,6 +38,6 @@
       <%= f.input :password_confirmation %>
       <%= f.input :image %>
       <%= f.hidden_field :role, value: true %>
-      <%= f.submit class: "btn btn-primary" %>
+      <%= f.submit class: "btn btn-success-outline" %>
     <% end %>
   </div>

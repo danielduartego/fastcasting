@@ -1,5 +1,8 @@
 class CalendarsController < ApplicationController
+
   before_action :set_calendar, only: [:show, :edit, :update, :destroy]
+
+  before_action :authenticate_user
 
 
   # GET /calendars
@@ -12,6 +15,7 @@ class CalendarsController < ApplicationController
   # GET /calendars/1
   # GET /calendars/1.json
   def show
+
   end
 
   # GET /calendars/new
@@ -31,11 +35,11 @@ class CalendarsController < ApplicationController
     @calendar.user = current_user
     respond_to do |format|
       if @calendar.save
-        format.html { redirect_to @calendar, notice: 'Calendar was successfully created.' }
-        format.json { render :show, status: :created, location: @calendar }
+        format.html { redirect_to current_user }
+        #format.json { render :show, status: :created, location: @calendar }
       else
         format.html { render :new }
-        format.json { render json: @calendar.errors, status: :unprocessable_entity }
+        #format.json { render json: @calendar.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -57,10 +61,13 @@ class CalendarsController < ApplicationController
   # DELETE /calendars/1
   # DELETE /calendars/1.json
   def destroy
-    @calendar.destroy
-    respond_to do |format|
-      format.html { redirect_to calendars_url, notice: 'Calendar was successfully destroyed.' }
-      format.json { head :no_content }
+    if @calendar.destroy
+      respond_to do |format|
+        format.html { redirect_to current_user }
+        format.json { head :no_content }
+      end
+    else
+      redirect_to current_user, alert: "You cant' delete!"
     end
   end
 

@@ -1,5 +1,5 @@
 <br>
-<h2 class="text-center"> <%= @user.full_name %> </h3>
+<h2 class="text-center"> <%= @user.full_name.upcase %> </h3>
 <br>
 
 <div class="text-center">
@@ -9,34 +9,29 @@
 </div>
 
 
+<div class="col-md-4"></div>
+
+
 <div class="col-md-4">
-  <%= simple_form_for(@calendar) do |f| %>
-
-    <div class="form-inputs">
-      <%= f.input :name %>
-      <%= f.input :start_time %>
-    </div>
-
-    <div class="form-actions">
-      <%= f.button :submit %>
-    </div>
-  <% end %>
-</div>
-<div class="col-md-4">
-
 <br>
 
 <%= month_calendar events: @calendars do |date, calendars| %>
-    <div class="circle small shape"><%= date.strftime("%d") %></div>
+  <% calendar = current_user.calendars.where(start_time: date).first || @calendar %>
+  <% method   = calendar.persisted? ? :delete : :post %>
+  <%= simple_form_for(calendar, method: method) do |f| %>
 
-<% calendars.each do |calendar| %>
-  <div>
-      <%= calendar.name %>
-    <div class="<%= label_class(calendar.aasm_state) %>">
-      <%= link_to calendar.aasm_state, calendar_status_index_path(calendar),
-                method: :post  %></div>
-  </div>
+    <%= f.hidden_field :start_time, value: date %>
+    <%= f.hidden_field :name, value: "available" %>
+
+    <%= f.submit :submit, value: date.strftime("%d"), class: "btn-cal-user"%>
+
+  
+  <% end %>
 <% end %>
-<% end %>
+
+
+
+
 </div>
+
 <div class="col-md-4"></div>

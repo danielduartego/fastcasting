@@ -9,23 +9,23 @@ class StatusController < ApplicationController
 
       if calendar.unavailable && current_user == calendar.user && user.role.nil?
           calendar.save
-          redirect_to calendars_path
+          redirect_to current_user
 
       elsif calendar.available && current_user == calendar.user && user.role.nil?
           calendar.save
-          redirect_to calendars_path
+          redirect_to current_user
 
       elsif calendar.hold && user.role?
             calendar.save
-            redirect_to calendars_path
+            redirect_to current_user
 
       elsif calendar.booked && user.role?
             calendar.save
-            redirect_to calendars_path
+            redirect_to current_user
 
       elsif calendar.unbooked && user.role?
             calendar.save
-            redirect_to calendars_path
+            redirect_to current_user
       else
         redirect_to calendar, alert: "Error! You can't update this calendar"
       end

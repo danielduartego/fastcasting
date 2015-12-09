@@ -5,15 +5,6 @@
   margin-top: 36px;
 }
 
-
-.div {
-  width: 600px;
-  height: 600px;
-  background-color: red;
-  position: absolute;
-  text-align: center;
-}
-
 .shape {
   border: 1px solid black;
   display: inline-block;
@@ -43,9 +34,7 @@
   border-radius: 100%;
 }
 
-.diamond {
-  transform: rotate(45deg);
-  margin: 20px;
+.image-min {
+  margin-top: 5px;
+  float: left;
 }
-
-/* colors */

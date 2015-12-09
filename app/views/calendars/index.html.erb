@@ -1,61 +1,34 @@
-<div class="">
-  <div class="col-md-4">
-    <%= simple_form_for(@calendar) do |f| %>
-      <%= f.error_notification %>
 
-      <div class="form-inputs">
-        <%= f.input :name %>
-        <%= f.input :start_time %>
-      </div>
+<div class="col-md-4">
+  <%= simple_form_for(@calendar) do |f| %>
 
-      <div class="form-actions">
-        <%= f.button :submit %>
-      </div>
-    <% end %>
-  </div>
-  <div class="col-md-4">
+    <div class="form-inputs">
+      <%= f.input :name %>
+      <%= f.input :start_time %>
+    </div>
 
-<table>
-  <tbody>
-    <% @calendars.each do |calendar| %>
-      <tr>
-        <td><%= calendar.name %></td>
-        <td><%= calendar.start_time %></td>
-        <td><%= link_to 'Show', calendar %></td>
-        <td><%= link_to 'Edit', edit_calendar_path(calendar) %></td>
-        <td><%= link_to 'Destroy', calendar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+</div>
+<div class="col-md-4">
 
 <br>
-<br>
------------------------------------------
-
 
 
 <%= month_calendar events: @calendars do |date, calendars| %>
-  <p class="text-center"><%= date.strftime(" %d") %></p>
-  <div class="calendar-circle">
-
-  </div>
+  <%= date.strftime("%d") %>
 
   <% calendars.each do |calendar| %>
     <div>
-      <%= calendar.name %>
-      <div class="text-center"><span class="<%= label_class(calendar.aasm_state) %>">
+        <%= calendar.name %>
+      <div class="<%= label_class(calendar.aasm_state) %>">
         <%= link_to calendar.aasm_state, calendar_status_index_path(calendar),
-                  method: :post  %></span></div>
-
+                  method: :post  %></div>
     </div>
   <% end %>
+
 <% end %>
-
-
-
-
-
-  </div>
-  <div class="col-md-4"></div>
 </div>
+<div class="col-md-4"></div>
