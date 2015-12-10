@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   skip_before_action :verify_authenticity_token
 
+  
+
   def authenticate_user
     unless user_signed_in?
       redirect_to new_session_path, alert: "Please log in!"
@@ -22,5 +24,9 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :user_signed_in?
+
+
+
+
 
 end

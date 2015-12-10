@@ -1,15 +1,14 @@
 <div class="col-md-4"></div>
-
 <div class="col-md-4">
   <br>
-  <h2 class="text-center"> <%= @user.full_name.upcase %> </h2>
-  <br>
-
   <div class="text-center">
     <% if @user.image.present? %>
     <%= image_tag @user.image.url(:medium), class: "img-circle" %>
     <% end %>
   </div>
+  <h2 class="text-center"> <%= @user.full_name.upcase %> </h2>
+  <br>
+  <br>
 
 <div>
   <%= month_calendar events: @calendars do |date, calendars| %>
@@ -22,6 +21,8 @@
       <%= f.hidden_field :name, value: "available" %>
 
       <%= f.submit :submit, value: date.strftime("%d"), class: "btn-cal-user"%>
+
+
 
     <% end %>
   <% end %>
