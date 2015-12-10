@@ -1,33 +1,31 @@
-<br>
-<h2 class="text-center"> <%= @user.full_name.upcase %> </h3>
-<br>
-
-<div class="text-center">
-  <% if @user.image.present? %>
-  <%= image_tag @user.image.url(:medium), class: "img-circle" %>
-  <% end %>
-</div>
-
-
 <div class="col-md-4"></div>
 
-
 <div class="col-md-4">
-<br>
+  <br>
+  <h2 class="text-center"> <%= @user.full_name.upcase %> </h2>
+  <br>
 
-<%= month_calendar events: @calendars do |date, calendars| %>
-  <% calendar = current_user.calendars.where(start_time: date).first || @calendar %>
-  <% method   = calendar.persisted? ? :delete : :post %>
-  <%= simple_form_for(calendar, method: method) do |f| %>
+  <div class="text-center">
+    <% if @user.image.present? %>
+    <%= image_tag @user.image.url(:medium), class: "img-circle" %>
+    <% end %>
+  </div>
 
-    <%= f.hidden_field :start_time, value: date %>
-    <%= f.hidden_field :name, value: "available" %>
+<div>
+  <%= month_calendar events: @calendars do |date, calendars| %>
+    <% calendar = current_user.calendars.where(start_time: date).first || @calendar %>
+    <% method   = calendar.persisted? ? :delete : :post %>
 
-    <%= f.submit :submit, value: date.strftime("%d"), class: "btn-cal-user"%>
+    <%= simple_form_for(calendar, method: method) do |f| %>
 
-  
+      <%= f.hidden_field :start_time, value: date %>
+      <%= f.hidden_field :name, value: "available" %>
+
+      <%= f.submit :submit, value: date.strftime("%d"), class: "btn-cal-user"%>
+
+    <% end %>
   <% end %>
-<% end %>
+</div>
 
 
 

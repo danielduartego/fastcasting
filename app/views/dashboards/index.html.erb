@@ -1,1 +1,214 @@
-<h1>HOME</h1>
+<div class="col-xs-6 col-md-3">
+    <br>
+    <div class="">
+    <%= link_to "Create a Project", new_project_path, class: "btn btn-success btn-block" %>
+    </div>
+    <br>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+          <h5 class="text-center">All Projects</h5>
+      </div>
+        <div class="panel-body">
+
+          <table class="table table-hover">
+              <thead>
+                  <tr>
+                      <th>Project</th>
+                      <th>Date</th>
+                      <th>Status</th>
+                  </tr>
+              </thead>
+              <tbody>
+                    <% @projects.each do |proj| %>
+                  <tr>
+                      <td><%= link_to proj.name, proj %></td>
+                      <td><%= proj.shoot_date %></td>
+                      <td>()()()</td>
+                    <% end %>
+                  </tr>
+              </tbody>
+          </table>
+
+      </div>
+    </div>
+</div>
+
+
+<div class="col-xs-12 col-sm-6 col-md-9 ">
+<!-- -------------------- Search -------------------------- -->
+<br>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+
+
+
+    <div class="ui icon input">
+      <input type="text" placeholder="Search...">
+      <i class="search icon"></i>
+    </div>
+
+    <label class="radio-inline">
+      <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Male
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Female
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> Any
+    </label>
+
+
+   <div class="ui right labeled input">
+     <input type="text" placeholder="Weight from ...">
+     <div class="ui basic label">
+       kg
+     </div>
+   </div>
+   <div class="ui right labeled input">
+     <input type="text" placeholder="to ...">
+     <div class="ui basic label">
+       kg
+     </div>
+   </div>
+
+
+   <div class="ui right labeled input">
+     <input type="number" placeholder="Height from ...">
+     <div class="ui basic label">
+       ft
+     </div>
+   </div>
+   <div class="ui right labeled input">
+     <input type="number" placeholder="to ...">
+     <div class="ui basic label">
+       ft
+     </div>
+   </div>
+
+
+   <div class="ui right labeled input">
+     <input type="number" placeholder="Age from ...">
+   </div>
+   <div class="ui right labeled input">
+     <input type="number" placeholder="to ...">
+
+   </div>
+    <select class="ui basic floating dropdown button">
+      <option placeholder="Enter weight..">Hair Color</option>
+      <option>Black</option>
+      <option>Blond</option>
+      <option>Bronw</option>
+      <option>Withe</option>
+      <option>Red</option>
+      <option>No Hair</option>
+    </select>
+    <select class="ui basic floating dropdown button">
+      <option>Eye Color</option>
+      <option>Black</option>
+      <option>Bronw</option>
+      <option>Blue</option>
+      <option>Green</option>
+    </select>
+    <select class="ui basic floating dropdown button">
+      <option>Ethnicity</option>
+      <option>Caucasian</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+    <select class="ui basic floating dropdown button">
+      <option>City</option>
+      <option>Vancouver</option>
+      <option>Los Angeles</option>
+      <option>New York</option>
+    </select>
+
+          <button type="submit" class="btn btn-success">Search</button>
+
+  </div>
+</div>
+
+
+
+
+
+<!-- -------------------------   Users Profile --------------------------- -->
+
+<% @users.each do |user| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+
+          <div class="row">
+            <div class="col-md-8">
+
+              <!-- ------------- main foto ------------ -->
+
+              <div class="ui small image">
+                <div class="ui fluid card ">
+                  <div class="image">
+                    <%= image_tag user.image %>
+                  </div>
+                </div>
+              </div>
+              <br>
+
+              <!-- ------------- small fotos ------------ -->
+
+                <div class="ui tiny image floating image-min-fixed">
+                  <div class="ui fluid card ">
+                    <div class="image">
+                      <%= image_tag user.image %>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+  <!-- ------------ drop down add projects ------------ -->
+            <div class="col-md-3 border-left-user-select ">
+
+              <select class="ui basic fluid floating dropdown button">
+                <option placeholder="Enter weight..">Add to project</option>
+                <% @projects.each do |proj| %>
+                <option><%= proj.name %></option>
+                <% end %>
+              </select>
+
+              <div class="ui relaxed divided list">
+                <div class="item">
+                  <a class="header">Legends - 12/17</a>
+                  <a class="header">Legends - 12/17</a>
+                  <a class="header">Legends - 12/17</a>
+                  <a class="header">Legends - 12/17</a>
+                  <a class="header">Legends - 12/17</a>
+                  <a class="header">Legends - 12/17</a>
+                  <a class="header">Legends - 12/17</a>
+                  <a class="header">Legends - 12/17</a>
+                  <a class="header">Legends - 12/17</a>
+                </div>
+              </div>
+
+            </div>
+
+  <!-- ------------ calendar ------------ -->
+            <div class="col-md-12">
+              <hr>
+              <%= calendar number_of_days: 14, events: @calendars do |date, calendars| %>
+                <%= date.strftime("%d") %>
+
+                <% calendars.each do |calendar| %>
+                  <div>
+                    <%#= calendar.name %>
+                  </div>
+
+                <% end %>
+              <% end %>
+            </div>
+
+
+      </div>
+    </div>
+  </div>
+<!-- end loop find users -->
+<% end %>

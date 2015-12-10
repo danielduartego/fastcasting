@@ -35,6 +35,19 @@
 }
 
 .image-min {
-  margin-top: 5px;
+  margin-top: 10px;
+  margin-left: 10px;
   float: left;
+}
+
+.image-min-fixed {
+  margin-top: 10px;
+  float: left;
+}
+
+
+.border-left-user-select {
+  border-left-color: #000;
+  border-left-style: solid;
+  border-left-width: 1px;
 }

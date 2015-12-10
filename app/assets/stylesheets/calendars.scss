@@ -29,7 +29,7 @@
   td {
     padding: 6px;
     vertical-align: center;
-    width: 14%;
+    // width: 14%;
 
     border: 1px solid rgb(221, 221, 221);
     border-top-color: rgb(221, 221, 221);
@@ -47,8 +47,8 @@
   }
 
   .day {
-    max-height: 50%;
-    max-width: 50%;
+    // max-height: 50%;
+    // max-width: 50%;
   }
 
   .wday-0 {}
@@ -60,11 +60,11 @@
   .wday-6 {}
 
   .today {
-    // background: #FFFFC0;
+    background: #c0c0c0;
   }
 
   .past {
-    // background: #f3f3f3;
+    background: #DDD;
   }
   .future {
     // background: green;
@@ -87,18 +87,11 @@
   .btn-cal-user {
     // border-radius: 100px;
     background-color: rgba(0, 0, 0, 0);
-    border: 1px solid;
+    // border: 1px solid;
     border-color: rgba(0, 0, 0, 0);
-    width: 55px;
-    height: 55px;
+    width: 35px;
+    height: 35px;
   }
-
-  .icon-big {
-    color: #fff;
-    width: 10px;
-    font-size: 35px;
-  }
-
 
 
 }
