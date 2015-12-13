@@ -46,7 +46,11 @@
 }
 
 .border-left-user-select {
-  border-left-color: #ddd;
-  border-left-style: solid;
-  border-left-width: 1px;
+  border-right-color: #ddd;
+  border-right-style: solid;
+  border-right-width: 1px;
+}
+
+.background-bases{
+  background-color: #fff;
 }

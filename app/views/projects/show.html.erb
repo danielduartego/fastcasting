@@ -1,47 +1,57 @@
 <br>
 <br>
-<!-- <div class="panel panel-default"> -->
   <div class="ui segment">
     <div class="row">
 
       <div class="col-md-4"><h5 class="ui header">Project Name</h5><%= @project.name %></div>
       <div class="col-md-4"><h5 class="ui header">Shoot Date</h5><%= @project.shoot_date %></div>
-      <div class="col-md-4"><h5 class="ui header">Casting Company</h5></div>
+      <div class="col-md-4"><h5 class="ui header">Casting Company</h5>
         <% if @project.user %>
         <%= @project.user.first_name.capitalize %>
         <% end %>
+        </div>
       <br>
       <br>
       <br>
       <div class="col-md-12"><h5 class="ui header">Description</h5><%= @project.description %></div>
-      <hr>
+      <br>
+      <br>
       <br>
       <br>
       <br>
 
+<!-- -------------------- user cards ------------------------ -->
+
+ <% @bookings.each do |booking| %>
+
         <div class="col-md-3">
           <div class="ui card">
             <div class="image">
-              <%= image_tag "eu.png" %>
+              <%= image_tag booking.user.image %>
             </div>
             <div class="content">
-              <a class="header">Daniel Duarte</a>
+              <a class="header"><%= booking.user.full_name %></a>
               <div class="meta">
                 <span class="date">Inspirational</span>
               </div>
             </div>
             <div class="extra content">
-                <div class="ui two buttons">
-                  <div class="fluid ui yellow button">Hold on</div>
+              <div class="ui two buttons">
+                <div class="ui basic green button">Approve</div>
+                
+                <div class="ui basic red button"><%= link_to "Decline",
+                    project_booking_path(@project, booking), method: :delete %></div>
+
               </div>
             </div>
           </div>
         </div>
+  <% end %>
 
-        <div class="col-md-3">
+        <!-- <div class="col-md-3">
           <div class="ui card">
             <div class="image">
-              <%= image_tag "eu.png" %>
+              <%#= image_tag "eu.png" %>
             </div>
             <div class="content">
               <a class="header">Daniel Duarte</a>
@@ -60,7 +70,7 @@
       <div class="col-md-3">
         <div class="ui card">
           <div class="image">
-            <%= image_tag "eu.png" %>
+            <%#= image_tag "eu.png" %>
           </div>
           <div class="content">
             <a class="header">Daniel Duarte</a>
@@ -80,7 +90,7 @@
       <div class="col-md-3">
         <div class="ui card">
           <div class="image">
-            <%= image_tag "eu.png" %>
+            <%#= image_tag "eu.png" %>
           </div>
           <div class="content">
             <a class="header">Daniel Duarte</a>
@@ -95,7 +105,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
 
 

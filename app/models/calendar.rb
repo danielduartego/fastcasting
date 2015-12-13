@@ -8,8 +8,8 @@ class Calendar < ActiveRecord::Base
 
   # we put all the states and transitions in the `aasm` block
   aasm whiny_transitions: false do
-    state :black, initial: true
-    state :green
+    state :green, initial: true
+    state :black
     state :orange
     state :red
 

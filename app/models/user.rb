@@ -1,11 +1,16 @@
 class User < ActiveRecord::Base
+
   has_secure_password
 
   validates :email, presence: true, uniqueness: true
 
-  has_many :calendars, dependent: :nullify
-  has_many :projects, dependent: :nullify
+  has_many :calendars, dependent: :destroy
+  has_many :projects, dependent: :destroy
+
   belongs_to :project
+
+  has_many :bookings, dependent: :destroy
+  has_many :booked_projects, through: :bookings, source: :project
 
   mount_uploader :image, ImageUploader
 
