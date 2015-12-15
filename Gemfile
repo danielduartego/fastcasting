@@ -39,7 +39,7 @@ gem "simple_calendar", "~> 2.0"
 gem 'aasm'
 gem 'cancancan'
 #upload avatar
-gem 'carrierwave'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 #para formatar fotos de varios tamanhos
 gem 'mini_magick'
 

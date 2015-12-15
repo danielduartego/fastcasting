@@ -11,15 +11,15 @@ class SessionsController < ApplicationController
     # user bg
      if user && user.authenticate(params[:password]) && user.role.nil?
        session[:user_id] = user.id
-       redirect_to user_path(current_user), notice: "welcome background performer"
+       redirect_to user_path(current_user)
     # user agent
     elsif user && user.authenticate(params[:password]) && user.role?
       session[:user_id] = user.id
-      redirect_to dashboard_path(current_user), notice: "welcome director"
+      redirect_to dashboard_path(current_user)
     # user diretor
     elsif user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to dashboard_path(current_user), notice: "welcome casting agent"
+      redirect_to dashboard_path(current_user)
     else
       flash[:alert] = "wrong, try again"
       render :new
@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to new_session_path
+    redirect_to root_path
   end
 
 end

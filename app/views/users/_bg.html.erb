@@ -1,0 +1,46 @@
+
+<div class="col-md-3"> </div>
+
+<div class="col-md-6">
+
+  <h1 class="text-center">Sign Up - BG</h1>
+  <div class="ui form">
+    <h1 class="text-center">Sign Up - BG</h1>
+
+    <%= form_for @user do |f| %>
+      <div class="form-group">
+        <%= f.label :first_name, "First name" %>
+        <%= f.text_field :first_name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :last_name, "Last name" %>
+        <%= f.text_field :last_name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :email, "Email"%>
+        <%= f.email_field :email, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password, "Create a Password"%>
+        <%= f.password_field :password, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation, "Repete the Password" %>
+        <%= f.password_field :password_confirmation, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :image  %>
+        <%= f.file_field :image, class: "form-control"  %>
+      </div>
+      <div class="form-group">
+        <%= f.label :pictures %>
+        <%= f.file_field :pictures, multiple: true, class: "form-control"  %>
+      </div>
+      <%= f.submit "Create user", class: "btn btn-primary btn-md btn-block" %>
+    <% end %>
+  </div>
+
+</div>
+
+
+<div class="col-md-3"></div>

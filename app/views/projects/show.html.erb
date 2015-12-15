@@ -3,11 +3,11 @@
   <div class="ui segment">
     <div class="row">
 
-      <div class="col-md-4"><h5 class="ui header">Project Name</h5><%= @project.name %></div>
-      <div class="col-md-4"><h5 class="ui header">Shoot Date</h5><%= @project.shoot_date %></div>
-      <div class="col-md-4"><h5 class="ui header">Casting Company</h5>
+      <div class="col-md-4"><h4 class="ui header">Project Name</h4><%= @project.name %></div>
+      <div class="col-md-4"><h4 class="ui header">Shoot Date</h4><%= @project.shoot_date %></div>
+      <div class="col-md-4"><h4 class="ui header">Casting Company</h4>
         <% if @project.user %>
-        <%= @project.user.first_name.capitalize %>
+        <%= @project.user.full_name.capitalize %>
         <% end %>
         </div>
       <br>
@@ -21,6 +21,7 @@
       <br>
 
 <!-- -------------------- user cards ------------------------ -->
+<div class="">
 
  <% @bookings.each do |booking| %>
 
@@ -37,8 +38,9 @@
             </div>
             <div class="extra content">
               <div class="ui two buttons">
-                <div class="ui basic green button">Approve</div>
-                
+                <div class="ui basic green button"><%= link_to "Approve",
+                    calendar_path(@project.shoot_date), method: :put %></div>
+
                 <div class="ui basic red button"><%= link_to "Decline",
                     project_booking_path(@project, booking), method: :delete %></div>
 
@@ -47,6 +49,13 @@
           </div>
         </div>
   <% end %>
+</div>
+
+  <!-- --------------------------- delete project link ------------------- -->
+  <br>
+  <div class="">
+    <%= link_to "Delete Project", project_path(@project), method: :delete, class: "ui red button" %>
+  </div>
 
         <!-- <div class="col-md-3">
           <div class="ui card">
@@ -106,6 +115,7 @@
           </div>
         </div>
       </div> -->
+
 
 
 

@@ -4,6 +4,6 @@ class HomesController < ApplicationController
     if current_user
       redirect_to dashboards_path
     end
+    @user = User.new
   end
-
 end

@@ -1,0 +1,17 @@
+
+<div class="ui form container">
+  <div class="field">
+  <%= simple_form_for @project do |f| %>
+    <%= f.input :name %>
+    <%= f.input :shoot_date %>
+    <%= f.input :description %>
+    <%= f.submit ({class: "positive ui button"}), rows: "5" %>
+    <button type="button" class="ui grey button" data-dismiss="modal">Cancel</button>
+  </div>
+  <% end %>
+</div>
+
+
+  <!-- <script type="text/javascript">
+      $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+  </script> -->

@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
     @booking.project = @project
     @booking.user = User.find params[:user_id]
     if @booking.save
-      redirect_to dashboards_path, notice: "success"
+      redirect_to dashboard_path(current_user), notice: "success"
     else
       redirect_to dashboards_path, notice: "error"
     end

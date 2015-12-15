@@ -6,14 +6,14 @@
   <table class="table-simple">
     <thead>
       <tr>
-        <% date_range.slice(0, 19).each do |day| %>
+        <% date_range.slice(0, 25).each do |day| %>
           <th><%= I18n.t("date.abbr_day_names")[day.wday] %></th>
         <% end %>
       </tr>
     </thead>
 
     <tbody>
-      <% date_range.each_slice(19) do |week| %>
+      <% date_range.each_slice(25) do |week| %>
         <tr>
           <% week.each do |day| %>
             <%= content_tag :td, class: calendar.td_classes_for(day) do %>

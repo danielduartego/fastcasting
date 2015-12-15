@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   skip_before_action :verify_authenticity_token
 
-  
+
 
   def authenticate_user
     unless user_signed_in?
@@ -26,7 +26,9 @@ class ApplicationController < ActionController::Base
   helper_method :user_signed_in?
 
 
-
+  def user_bg
+    User.where(:role => nil)
+  end
 
 
 end

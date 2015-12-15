@@ -1,0 +1,133 @@
+<!-- -------------------------   Users Profile  --------------------------- -->
+
+<% @users.each do |user| %>
+  <div class="ui segment">
+    <div class="">
+
+
+          <div class="row">
+            <div class="col-md-9  border-left-user-select">
+
+              <!-- ------------- main foto ------------ -->
+
+              <div class="ui items">
+                <div class="item">
+                  <div class="ui small image">
+                    <div class="ui fluid card ">
+                      <div class="image">
+                        <%= image_tag user.image %>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="content">
+                    <div class="header"><%= user.full_name %></div>
+                    <div class="meta">
+                      <span class="price">Inspirationall</span>
+                      <span class="stay"> </span>
+                    </div>
+                    <div class="description">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <!-- ------------- small fotos ------------ -->
+
+                <div class="ui tiny image floating image-min-fixed">
+                  <div class="ui fluid card ">
+                    <div class="image">
+                      <%= image_tag user.pictures[0] %>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="ui tiny image floating image-min">
+                  <div class="ui fluid card ">
+                    <div class="image">
+                      <%= image_tag user.pictures[1]%>
+                    </div>
+                  </div>
+                </div>
+                <div class="ui tiny image floating image-min">
+                  <div class="ui fluid card ">
+                    <div class="image">
+                      <%= image_tag user.pictures[2] %>
+                    </div>
+                  </div>
+                </div>
+                <div class="ui tiny image floating image-min">
+                  <div class="ui fluid card ">
+                    <div class="image">
+                      <%= image_tag user.pictures[3] %>
+                    </div>
+                  </div>
+                </div>
+                <div class="ui tiny image floating image-min">
+                  <div class="ui fluid card ">
+                    <div class="image">
+                      <%= image_tag user.pictures[4] %>
+                    </div>
+                  </div>
+                </div>
+                <div class="ui tiny image floating image-min">
+                  <div class="ui fluid card ">
+                    <div class="image">
+                      <%= image_tag user.pictures[5] %>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+
+  <!-- ------------ drop down add projects ------------ -->
+            <div class="col-md-3">
+
+
+                <div class="ui basic fluid floating button dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown"
+                  role="button" aria-haspopup="true" aria-expanded="false">Add to project</a>
+                  <ul class="dropdown-menu">
+                    <% @projects.each do |proj| %>
+                    <li><a><%= link_to proj.name, project_bookings_path(proj, params: {user_id: user}),
+                                                  method: :post %></a></li>
+                                                  <% end %>
+                  </ul>
+                </div>
+
+                <div class="ui relaxed divided list">
+                  <div class="item">
+                    <% @bookings.each do |book| %>
+                    <a class="header">
+                      <%= book.project.name %></a>
+                      <% end %>
+                  </div>
+                </div>
+
+            </div>
+
+  <!-- ------------ calendar ------------ -->
+            <div class="col-md-12">
+              <hr>
+          <%= calendar number_of_days: 21, events: user.calendars do |date, calendars| %>
+                <%= date.strftime("%d")%>
+
+
+                <%# calendars.each do |calendar| %>
+                  <div>
+                    <%#= calendar.name %>
+                  </div>
+
+                <%# end %>
+              <% end %>
+            </div>
+  <!-- ------------ end of user ------------ -->
+
+      </div>
+    </div>
+  </div>
+<!-- end loop find users -->
+<% end %>

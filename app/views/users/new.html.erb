@@ -1,43 +1,141 @@
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="/"><%= image_tag "logo_fc_1.png" %></a>
+        </div>
 
-  <div class="col-md-4">
-    <h1 class="ui header text-center">Sign Up - BG</h1>
-    <%= simple_form_for @user do |f| %>
-      <%= f.input :first_name %>
-      <%= f.input :last_name %>
-      <%= f.input :email %>
-      <%= f.input :password %>
-      <%= f.input :password_confirmation %>
-      <%= f.input :image, class: "file-custom" %>
-      <%= f.submit class: "btn btn-success-outline" %>
-    <% end %>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="hidden">
+                    <a href="/"></a>
+                </li>
+                <li>
+                    <a class="/" href="/">Services</a>
+                </li>
+                <li>
+                    <a class="/" href="/">Contact</a>
+                </li>
+                <li>
+                  <a href="/" class="btn-nav" data-toggle="modal">Log in</a>
+                </li>
+                <li>
+                  <a href="/" class="btn-nav1" data-toggle="modal">Sign up</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+<div class="col-md-3"></div>
+
+<!-- ------------------ agent and diretor signup ------------------------ -->
+<div class="col-md-6">
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <div class="ui segment new-user">
+      <div class="ui form">
+
+
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#agent" data-toggle="tab" aria-expanded="false"><h3 class="ui header"> Agent </h3></a></li>
+          <li><a href="#director" data-toggle="tab" aria-expanded="true"><h3 class="ui header">Casting Director / Producer</h3></a></li>
+          <li><a href="#bg" data-toggle="tab" aria-expanded="true"><h3 class="ui header">Background</h3></a></li>
+        </ul>
+
+        <div class="tab-content">
+
+          <div role="tabpanel" class="tab-pane fade in active" id="agent">
+            <h1 class="text-center"></h1>
+            <div class="ui form">
+              <%= simple_form_for @user do |f| %>
+              <div class="field">
+                <%= f.input :first_name %>
+                <%= f.input :last_name %>
+                <%= f.input :email %>
+                <%= f.input :password %>
+                <%= f.input :password_confirmation %>
+                <%= f.input :image %>
+                <%= f.hidden_field :role, value: false %>
+                <%= f.submit class: "btn btn-primary btn-md btn-block" %>
+              <% end %>
+              </div>
+            </div>
+          </div>
+
+          <div role="tabpanel" class="tab-pane fade" id="director">
+            <h1 class="text-center"></h1>
+            <div class="ui form">
+              <%= simple_form_for @user do |f| %>
+              <div class="field">
+                <%= f.input :first_name %>
+                <%= f.input :last_name %>
+                <%= f.input :email %>
+                <%= f.input :password %>
+                <%= f.input :password_confirmation %>
+                <%= f.input :image %>
+                <%= f.hidden_field :role, value: true %>
+                <%= f.submit class: "btn btn-primary btn-md btn-block" %>
+              <% end %>
+              </div>
+            </div>
+          </div>
+
+          <div role="tabpanel" class="tab-pane fade" id="bg">
+            <h1 class="text-center"></h1>
+            <div class="ui form">
+              <%= form_for @user do |f| %>
+                <div class="form-group">
+                  <%= f.label :first_name %>
+                  <%= f.text_field :first_name, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :last_name %>
+                  <%= f.text_field :last_name, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :email %>
+                  <%= f.email_field :email, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :password %>
+                  <%= f.password_field :password, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :password_confirmation %>
+                  <%= f.password_field :password_confirmation, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :image  %>
+                  <%= f.file_field :image, class: "form-control"  %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :pictures %>
+                  <%= f.file_field :pictures, multiple: true, class: "form-control"  %>
+                </div>
+                <%= f.submit "Create user", class: "btn btn-primary btn-md btn-block" %>
+              <% end %>
+            </div>
+          </div>
+
+        </div>
+
+    </div>
   </div>
-
-  <div class="col-md-4">
-    <h1 class="ui header text-center">Sign Up - Agent</h1>
-    <%= simple_form_for @user do |f| %>
-      <%= f.input :first_name %>
-      <%= f.input :last_name %>
-      <%= f.input :email %>
-      <%= f.input :password %>
-      <%= f.input :password_confirmation %>
-      <%= f.input :image %>
-      <%= f.hidden_field :role, value: false %>
-      <%= f.submit class: "positive ui button" %>
-    <% end %>
-  </div>
+</div>
 
 
-
-  <div class="col-md-4">
-    <h1 class="ui header text-center">Sign Up - Dir</h1>
-    <%= simple_form_for @user do |f| %>
-      <%= f.input :first_name %>
-      <%= f.input :last_name %>
-      <%= f.input :email %>
-      <%= f.input :password %>
-      <%= f.input :password_confirmation %>
-      <%= f.input :image %>
-      <%= f.hidden_field :role, value: true %>
-      <%= f.submit class: "btn btn-success-outline" %>
-    <% end %>
-  </div>
+<div class="col-md-3"></div>

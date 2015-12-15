@@ -1,14 +1,21 @@
 <div class="col-sm-6 col-md-3">
 <br>
-<br>
-    <div class="">
-    <%= link_to "Create a Project", new_project_path, class: "ui green button fluid" %>
-    </div>
+<!-- --------------------- button new project --------------------------------- -->
 
+      <% if current_user.role? %>
+        <br>
+          <%#= link_to "Create a Project", new_project_path, class: "ui green button fluid" %>
+          <button type="button" class="btn btn-primary btn-md btn-block" data-toggle="modal"
+          data-target="#exampleModal" data-whatever="@mdo">Create a Project</button>
+      <% end %>
+
+
+
+<!-- --------------------- button new project end --------------------------------- -->
     <br>
 
     <div class="panel panel-default">
-      <div class="panel-heading text-center">All Projects</div>
+      <div class="panel-heading text-center"><h4 class="ui header">All Projects Requests</h4></div>
 
           <table class="table table-hover">
               <thead>
@@ -28,259 +35,152 @@
                   </tr>
               </tbody>
           </table>
-
-
     </div>
 </div>
 
 
 <div class="col-xs-12 col-sm-6 col-md-9 ">
 <!-- -------------------- Search box -------------------------- -->
-<br>
-<div class="ui segment">
-  <div class="">
-    <div class="ui form">
-<!-- ----------------- line 1 --------------- -->
+  <br>
+    <div class="ui segment">
+      <div class="">
+        <div class="ui form">
 
-                      <div class="fields">
-                        <div class="six wide field focus">
-                          <!-- <label>Search</label> -->
-                          <input type="text" placeholder="Search">
-                        </div>
+  <!-- ----------------- line 1 --------------- -->
+              <div class="fields">
+                <div class="six wide field focus">
+                  <!-- <label>Search</label> -->
+                  <input type="text" placeholder="Search">
+                </div>
 
-                        <div class="four wide field">
-                          <!-- <label>Gender</label> -->
-                          <select class="ui basic dropdown button">
-                            <option>Gender</option>
-                            <option>Male</option>
-                            <option>Female</option>
-                            <option>Either</option>
-                          </select>
-                        </div>
+                <div class="four wide field">
+                  <!-- <label>Gender</label> -->
+                  <select class="ui basic dropdown button">
+                    <option>Gender</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Either</option>
+                  </select>
+                </div>
 
-                        <div class="six wide field">
-                          <!-- <label>City</label> -->
-                          <select class="ui basic dropdown button">
-                            <option>City</option>
-                            <option>Vancouver</option>
-                            <option>Los Angeles</option>
-                            <option>New York</option>
-                          </select>
-                        </div>
-                      </div>
+                <div class="six wide field">
+                  <!-- <label>City</label> -->
+                  <select class="ui basic dropdown button">
+                    <option>City</option>
+                    <option>Vancouver</option>
+                    <option>Los Angeles</option>
+                    <option>New York</option>
+                  </select>
+                </div>
+              </div>
 
 <!-- ----------------- line 2 --------------- -->
 
-                      <div class="fields">
-                        <div class="three wide field">
-                          <input type="number" placeholder="Age from">
-                        </div>
+              <div class="fields">
+                <div class="three wide field">
+                  <input type="number" placeholder="Age from">
+                </div>
 
-                        <div class="three wide field">
-                          <input type="number" placeholder="to..">
-                        </div>
+                <div class="three wide field">
+                  <input type="number" placeholder="to..">
+                </div>
 
-                        <div class="three wide field">
-                          <select class="ui basic floating dropdown button">
-                            <option placeholder="Enter weight..">Hair Color</option>
-                            <option>Black</option>
-                            <option>Blond</option>
-                            <option>Bronw</option>
-                            <option>Withe</option>
-                            <option>Red</option>
-                            <option>No Hair</option>
-                          </select>
-                        </div>
+                <div class="three wide field">
+                  <select class="ui basic floating dropdown button">
+                    <option placeholder="Enter weight..">Hair Color</option>
+                    <option>Black</option>
+                    <option>Blond</option>
+                    <option>Bronw</option>
+                    <option>Withe</option>
+                    <option>Red</option>
+                    <option>No Hair</option>
+                  </select>
+                </div>
 
-                      <div class="three wide field">
-                        <select class="ui basic floating dropdown button">
-                          <option>Eye Color</option>
-                          <option>Black</option>
-                          <option>Bronw</option>
-                          <option>Blue</option>
-                          <option>Green</option>
-                        </select>
-                      </div>
+              <div class="three wide field">
+                <select class="ui basic floating dropdown button">
+                  <option>Eye Color</option>
+                  <option>Black</option>
+                  <option>Bronw</option>
+                  <option>Blue</option>
+                  <option>Green</option>
+                </select>
+              </div>
 
-                    <div class="four wide field">
-                      <select class="ui basic floating dropdown button">
-                        <option>Ethnicity</option>
-                        <option>Caucasian</option>
-                        <option>Asian</option>
-                        <option>African</option>
-                        <option>Other</option>
-                      </select>
-                    </div>
-                  </div>
+            <div class="four wide field">
+              <select class="ui basic floating dropdown button">
+                <option>Ethnicity</option>
+                <option>Caucasian</option>
+                <option>Asian</option>
+                <option>African</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
 
 <!-- ----------------- line 3 --------------- -->
 
-                  <div class="fields">
-                      <div class="three wide field">
-                        <input type="number" placeholder="Weith from">
-                      </div>
+          <div class="fields">
+              <div class="three wide field">
+                <input type="number" placeholder="Weigth from">
+              </div>
 
-                      <div class="three wide field">
-                        <input type="number" placeholder="to..">
-                      </div>
+              <div class="three wide field">
+                <input type="number" placeholder="to..">
+              </div>
 
-                      <div class="three wide field">
-                        <input type="number" placeholder="Heith from">
-                      </div>
+              <div class="three wide field">
+                <input type="number" placeholder="Heigth from">
+              </div>
 
-                      <div class="three wide field">
-                        <input type="number" placeholder="to..">
-                      </div>
+              <div class="three wide field">
+                <input type="number" placeholder="to..">
+              </div>
 
-                  <div class="four wide field">
-                    <button class="ui green button fluid">Search</button>
-                  </div>
-                </div>
-                <hr>
-                <div class="sixteen wide field">
-                  <%= calendar number_of_days: 19, events: current_user.calendars do |date| %>
-                    <%= link_to date.strftime("%d") %>
-                  <% end %>
-                </div>
-
-<!-- ----------------- end of search --------------- -->
+          <div class="four wide field">
+            <button class="ui green button fluid">Search</button>
+          </div>
+        </div>
+        <hr>
+        <div class="sixteen wide field">
+          <%= calendar number_of_days: 21, events: current_user.calendars do |date| %>
+            <%= link_to date.strftime("%d") %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
+
+<!-- ----------------- end of search --------------- -->
+
+
+<!-- users profile  -->
+
+  <div class="">
+    <%= render "user_profile" %>
+  </div>
+
+<!-- end users profile  -->
+
 </div>
 
 
 
+<!-- modal new projects -->
 
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h3 class="ui header">New Project</h3>
+        </div>
 
-<!-- -------------------------   Users Profile  --------------------------- -->
-
-<% @users.each do |user| %>
-  <div class="ui segment">
-    <div class="">
-
-
-          <div class="row">
-            <div class="col-md-9  border-left-user-select">
-
-              <!-- ------------- main foto ------------ -->
-
-              <div class="ui items">
-                <div class="item">
-                  <div class="ui small image">
-                    <div class="ui fluid card ">
-                      <div class="image">
-                        <%= image_tag user.image %>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="content">
-                    <div class="header"><%= user.full_name %></div>
-                    <div class="meta">
-                      <span class="price">Inspirationall</span>
-                      <span class="stay"> </span>
-                    </div>
-                    <div class="description">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
-
-              <!-- ------------- small fotos ------------ -->
-
-                <div class="ui tiny image floating image-min-fixed">
-                  <div class="ui fluid card ">
-                    <div class="image">
-                      <%= image_tag user.image %>
-                    </div>
-                  </div>
-                </div>
-                <div class="ui tiny image floating image-min">
-                  <div class="ui fluid card ">
-                    <div class="image">
-                      <%= image_tag user.image %>
-                    </div>
-                  </div>
-                </div>
-                <div class="ui tiny image floating image-min">
-                  <div class="ui fluid card ">
-                    <div class="image">
-                      <%= image_tag user.image %>
-                    </div>
-                  </div>
-                </div>
-                <div class="ui tiny image floating image-min">
-                  <div class="ui fluid card ">
-                    <div class="image">
-                      <%= image_tag user.image %>
-                    </div>
-                  </div>
-                </div>
-                <div class="ui tiny image floating image-min">
-                  <div class="ui fluid card ">
-                    <div class="image">
-                      <%= image_tag user.image %>
-                    </div>
-                  </div>
-                </div>
-                <div class="ui tiny image floating image-min">
-                  <div class="ui fluid card ">
-                    <div class="image">
-                      <%= image_tag user.image %>
-                    </div>
-                  </div>
-                </div>
-
-            </div>
-
-
-  <!-- ------------ drop down add projects ------------ -->
-            <div class="col-md-3">
-
-
-                <div class="ui basic fluid floating button dropdown">
-                  <a class="dropdown-toggle" data-toggle="dropdown"
-                  role="button" aria-haspopup="true" aria-expanded="false">Add to project</a>
-                  <ul class="dropdown-menu">
-                    <% @projects.each do |proj| %>
-                    <li><a><%= link_to proj.name, project_bookings_path(proj, params: {user_id: user}),
-                                                  method: :post %></a></li>
-                                                  <% end %>
-                  </ul>
-                </div>
-
-                <div class="ui relaxed divided list">
-                  <div class="item">
-                    <% @bookings.each do |book| %>
-                    <a class="header">
-                      <%= book.project.name %></a>
-                      <% end %>
-                  </div>
-                </div>
-
-            </div>
-
-  <!-- ------------ calendar ------------ -->
-            <div class="col-md-12">
-              <hr>
-          <%= calendar number_of_days: 19, events: user.calendars do |date, calendars| %>
-                <%= date.strftime("%d")%>
-
-
-                <%# calendars.each do |calendar| %>
-                  <div>
-                    <%#= calendar.name %>
-                  </div>
-
-                <%# end %>
-              <% end %>
-            </div>
-  <!-- ------------ end of user ------------ -->
+        <br>
+        <%= render "/projects/new" %>
+        <br>
+        <br>
 
       </div>
     </div>
   </div>
-<!-- end loop find users -->
-<% end %>

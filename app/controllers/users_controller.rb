@@ -12,11 +12,12 @@ class UsersController < ApplicationController
 
   def create
     user_params = params.require(:user).permit(:first_name, :last_name, :email,
-                                              :password, :password_confirmation, :role, :image)
+                                              :password, :password_confirmation,
+                                              :role, :image, pictures: [])
     @user = User.new user_params
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_path, notice: "account created!"
+      redirect_to user_path(current_user), notice: "account created!"
     else
       render :new
     end

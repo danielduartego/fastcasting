@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+
   before_action :authenticate_user
 
   def new
@@ -23,6 +24,16 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
+  end
+
+  def destroy
+    @project = Project.find params[:id]
+    @project.destroy
+    if @project.destroy
+      redirect_to dashboard_path(current_user)
+    else
+      redirect_to project_path(@project), alert: "Error"
+    end
   end
 
   private

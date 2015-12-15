@@ -1,15 +1,14 @@
+<br>
 <div class="col-md-4"></div>
 <div class="col-md-4">
-  <br>
   <div class="text-center">
     <% if @user.image.present? %>
     <%= image_tag @user.image.url(:medium), class: "img-circle" %>
     <% end %>
   </div>
   <h2 class="text-center"> <%= @user.full_name.upcase %> </h2>
-  <br>
-  <br>
 
+<% if current_user.role.nil? %>
   <div>
     <%= month_calendar events: @calendars do |date, calendars| %>
     <% calendar = current_user.calendars.where(start_time: date).first || @calendar %>
@@ -23,6 +22,7 @@
 
     <% end %>
   </div>
+<% end %>
 
 </div>
 
