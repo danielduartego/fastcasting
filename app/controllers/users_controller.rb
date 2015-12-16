@@ -26,7 +26,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find params[:id]
     @calendars = @user.calendars
-    @calendar = Calendar.new
   end
 
 end

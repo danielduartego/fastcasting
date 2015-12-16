@@ -1,5 +1,4 @@
 <br>
-<br>
   <div class="ui segment">
     <div class="row">
 
@@ -9,121 +8,60 @@
         <% if @project.user %>
         <%= @project.user.full_name.capitalize %>
         <% end %>
-        </div>
+      </div>
       <br>
       <br>
       <br>
-      <div class="col-md-12"><h5 class="ui header">Description</h5><%= @project.description %></div>
+      <div class="col-md-12"><h5 class="ui header">Description</h5>
+        <%= @project.description %></div>
       <br>
-      <br>
-      <br>
-      <br>
-      <br>
+
 
 <!-- -------------------- user cards ------------------------ -->
-<div class="">
 
- <% @bookings.each do |booking| %>
-
-        <div class="col-md-3">
-          <div class="ui card">
-            <div class="image">
-              <%= image_tag booking.user.image %>
-            </div>
-            <div class="content">
-              <a class="header"><%= booking.user.full_name %></a>
-              <div class="meta">
-                <span class="date">Inspirational</span>
-              </div>
-            </div>
-            <div class="extra content">
-              <div class="ui two buttons">
-                <div class="ui basic green button"><%= link_to "Approve",
-                    calendar_path(@project.shoot_date), method: :put %></div>
-
-                <div class="ui basic red button"><%= link_to "Decline",
-                    project_booking_path(@project, booking), method: :delete %></div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-  <% end %>
-</div>
-
-  <!-- --------------------------- delete project link ------------------- -->
-  <br>
-  <div class="">
-    <%= link_to "Delete Project", project_path(@project), method: :delete, class: "ui red button" %>
-  </div>
-
-        <!-- <div class="col-md-3">
-          <div class="ui card">
-            <div class="image">
-              <%#= image_tag "eu.png" %>
-            </div>
-            <div class="content">
-              <a class="header">Daniel Duarte</a>
-              <div class="meta">
-                <span class="date">Inspirational</span>
-              </div>
-            </div>
-            <div class="extra content">
-                <div class="ui two buttons">
-                  <div class="fluid ui yellow button">Hold on</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
+      <% @bookings.each do |booking| %>
       <div class="col-md-3">
+        <br>
         <div class="ui card">
           <div class="image">
-            <%#= image_tag "eu.png" %>
+            <%= image_tag booking.user.image.url(:card) %>
           </div>
           <div class="content">
-            <a class="header">Daniel Duarte</a>
+            <a class="header"><%= booking.user.full_name %></a>
             <div class="meta">
               <span class="date">Inspirational</span>
             </div>
           </div>
           <div class="extra content">
-              <div class="ui two buttons">
-                <div class="fluid ui red button">Booked</div>
+            <div class="ui two buttons">
+            <div class="ui basic green button">
+              <%= link_to "Approve",
+                  calendar_path(@project.shoot_date), method: :put %></div>
+
+            <div class="ui basic red button"><%= link_to "Decline",
+                  project_booking_path(@project, booking), method: :delete %></div>
+
             </div>
           </div>
         </div>
       </div>
+      <% end %>
 
+<!-- --------------------------- delete project link ------------------- -->
 
-      <div class="col-md-3">
-        <div class="ui card">
-          <div class="image">
-            <%#= image_tag "eu.png" %>
-          </div>
-          <div class="content">
-            <a class="header">Daniel Duarte</a>
-            <div class="meta">
-              <span class="date">Inspirational</span>
-            </div>
-          </div>
-          <div class="extra content">
-              <div class="ui two buttons">
-                <div class="ui basic green button">Approve</div>
-                <div class="ui basic red button">Decline</div>
-            </div>
-          </div>
+      <div class="col-md-12">
+        <br>
+        <div class="ui divider"></div>
+        <div class="text-right">
+          <%= link_to "Delete Project", project_path(@project), method: :delete,
+          class: "ui red button" %>
         </div>
-      </div> -->
-
-
+      </div>
 
 
 
     </div>
   </div>
-<!-- </div> -->
-
 <br>
 <br>
 <br>

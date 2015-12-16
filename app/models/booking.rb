@@ -1,6 +1,6 @@
 class Booking < ActiveRecord::Base
 
-  # validates
+  # validates :user, uniqueness: true
 
   belongs_to :user
   belongs_to :project

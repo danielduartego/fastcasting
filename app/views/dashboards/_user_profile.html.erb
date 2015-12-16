@@ -15,7 +15,7 @@
                   <div class="ui small image">
                     <div class="ui fluid card ">
                       <div class="image">
-                        <%= image_tag user.image %>
+                        <%= image_tag user.image.url(:card) %>
                       </div>
                     </div>
                   </div>
@@ -39,7 +39,7 @@
                 <div class="ui tiny image floating image-min-fixed">
                   <div class="ui fluid card ">
                     <div class="image">
-                      <%= image_tag user.pictures[0] %>
+                      <%= image_tag user.pictures[0].url(:medium_4) %>
 
                     </div>
                   </div>
@@ -47,35 +47,35 @@
                 <div class="ui tiny image floating image-min">
                   <div class="ui fluid card ">
                     <div class="image">
-                      <%= image_tag user.pictures[1]%>
+                      <%= image_tag user.pictures[1].url(:medium_4)%>
                     </div>
                   </div>
                 </div>
                 <div class="ui tiny image floating image-min">
                   <div class="ui fluid card ">
                     <div class="image">
-                      <%= image_tag user.pictures[2] %>
+                      <%= image_tag user.pictures[2].url(:medium_4) %>
                     </div>
                   </div>
                 </div>
                 <div class="ui tiny image floating image-min">
                   <div class="ui fluid card ">
                     <div class="image">
-                      <%= image_tag user.pictures[3] %>
+                      <%= image_tag user.pictures[3].url(:medium_4) %>
                     </div>
                   </div>
                 </div>
                 <div class="ui tiny image floating image-min">
                   <div class="ui fluid card ">
                     <div class="image">
-                      <%= image_tag user.pictures[4] %>
+                      <%= image_tag user.pictures[4].url(:medium_4) %>
                     </div>
                   </div>
                 </div>
                 <div class="ui tiny image floating image-min">
                   <div class="ui fluid card ">
                     <div class="image">
-                      <%= image_tag user.pictures[5] %>
+                      <%= image_tag user.pictures[5].url(:medium_4) %>
                     </div>
                   </div>
                 </div>

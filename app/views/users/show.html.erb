@@ -11,7 +11,7 @@
 <% if current_user.role.nil? %>
   <div>
     <%= month_calendar events: @calendars do |date, calendars| %>
-    <% calendar = current_user.calendars.where(start_time: date).first || @calendar %>
+    <% calendar = calendars.first || Calendar.new %>
     <% method   = calendar.persisted? ? :delete : :post %>
 
       <%= simple_form_for(calendar, method: method) do |f| %>
@@ -19,9 +19,8 @@
         <%= f.hidden_field :name, value: "available" %>
         <%= f.submit :submit, value: date.strftime("%d"), class: "btn-cal-user"%>
       <% end %>
-
     <% end %>
-  </div>
+
 <% end %>
 
 </div>
