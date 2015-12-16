@@ -21,8 +21,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to dashboard_path(current_user)
     else
-      flash[:alert] = "wrong, try again"
-      render :new
+      render :new, alert: "Wrong credentials, try again"
     end
   end
 

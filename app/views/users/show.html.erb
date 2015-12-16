@@ -23,6 +23,12 @@
 
 <% end %>
 
+<!-- mostrar em quais projetos as datas do usuario match com o show -->
+<h3>Potencial Bookings</h3>
+<% (@projects.for_dates(@user.bookable_dates)).each do |project|%>
+  <li>Project: <%= project.name %> - Date: <%= project.shoot_date %></li>
+<% end %>
+
 </div>
 
 <div class="col-md-4"></div>

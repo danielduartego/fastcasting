@@ -29,35 +29,52 @@
           <div class="content">
             <a class="header"><%= booking.user.full_name %></a>
             <div class="meta">
-              <span class="date">Inspirational</span>
+              <span class="date">Talents</span>
             </div>
           </div>
           <div class="extra content">
-            <div class="ui two buttons">
-            <div class="ui basic green button">
-              <%= link_to "Approve",
-                  calendar_path(@project.shoot_date), method: :put %></div>
+            <% if booking.accepted? %>
+              <div><%= link_to "Booked", project_booking_path(@project, booking),
+                        method: :delete, class: "ui fluid red button" %></div>
+            <% else %>
+                <% if current_user.role %>
+                  <div class="">
+                  <div class= "" >
+                    <%= form_for [@project, booking] do |f| %>
+                      <%= f.hidden_field :accepted, value: true %>
+                      <%= f.submit "Approve", class: "inverted ui left floated green button" %>
+                    <% end %>
+                    </div>
+                    <div class= "">
+                      <%= link_to "Decline",
+                          project_booking_path(@project, booking), method: :delete,
+                          class: "inverted ui right floated red button" %>
+                    </div>
+                  </div>
 
-            <div class="ui basic red button"><%= link_to "Decline",
-                  project_booking_path(@project, booking), method: :delete %></div>
-
-            </div>
+                <% else %>
+                <div><%= link_to "Hold on", project_booking_path(@project, booking),
+                          method: :delete, class: "ui fluid yellow button" %></div>
+                <% end %>
+            <% end %>
           </div>
         </div>
       </div>
       <% end %>
 
+
 <!-- --------------------------- delete project link ------------------- -->
 
+<% if current_user.role %>
       <div class="col-md-12">
         <br>
         <div class="ui divider"></div>
         <div class="text-right">
           <%= link_to "Delete Project", project_path(@project), method: :delete,
-          class: "ui red button" %>
+          class: "ui inverted red button" %>
         </div>
       </div>
-
+<% end %>
 
 
     </div>

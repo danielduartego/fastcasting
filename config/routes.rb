@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :dashboards
 
   resources :projects do
-    resources :bookings, only: [:create, :destroy]
+    resources :bookings, only: [:create, :destroy, :update]
   end
 
   # You can have the root of your site routed with "root"

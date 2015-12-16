@@ -7,7 +7,7 @@ class DashboardsController < ApplicationController
       redirect_to user_path(current_user)
     else
       @users = User.where(:role => nil)
-      @projects = Project.all.order(:shoot_date)
+      @projects = Project.all
       @project = Project.new
       @calendars = Calendar.all
       @calendar = Calendar.new
@@ -16,6 +16,7 @@ class DashboardsController < ApplicationController
   end
 
   def index
+    redirect_to dashboard_path(current_user)
     # @users = User.all #users_for_role(current_user.type_of_role)
     # @projects = Project.all.order(:shoot_date)
     # @project = Project.new

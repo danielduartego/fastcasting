@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to dashboard_path(current_user), notice: "Background add to the project"
     else
-      redirect_to dashboard_path(current_user), alert: "Background already on this project"
+      redirect_to dashboard_path(current_user), alert: "This background is already on this project"
     end
   end
 
@@ -22,8 +22,17 @@ class BookingsController < ApplicationController
     else
       redirect_to project_path(@project), alert: "Error"
     end
-
   end
 
+  def update
+    @project = Project.find params[:project_id]
+    @booking = @project.bookings.find params[:id]
+    booking_params = params.require(:booking).permit(:user_id, :project_id, :accepted)
+    if @booking.update booking_params
+      redirect_to project_path(@project)
+    else
+      redirect_to project_path(@project)
+    end
+  end
 
 end

@@ -28,7 +28,6 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project = Project.find params[:id]
-    @project.destroy
     if @project.destroy
       redirect_to dashboard_path(current_user)
     else
@@ -36,10 +35,19 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def update
+    @project = Project.find params[:id]
+    if @project.update
+      redirect_to project_path(@project)
+    else
+      redirect_to project_path(@project)
+    end
+  end
+
   private
 
   def project_params
-    params.require(:project).permit(:name, :shoot_date, :description)
+    params.require(:project).permit(:name, :shoot_date, :description, :accepted)
 
   end
 

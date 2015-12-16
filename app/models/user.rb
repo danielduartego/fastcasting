@@ -32,7 +32,9 @@ class User < ActiveRecord::Base
     end
   end
 
-
+  def bookable_dates
+    calendars.pluck(:start_time)
+  end
 
   # def self.users_for_role(type_of_role)
   #   case type_of_role
