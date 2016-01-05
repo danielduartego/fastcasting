@@ -13,7 +13,8 @@ class UsersController < ApplicationController
   def create
     user_params = params.require(:user).permit(:first_name, :last_name, :email,
                                               :password, :password_confirmation,
-                                              :role, :image, pictures: [])
+                                              :role, :gender, :hair, :eyes, :height,
+                                              :weight, :image, pictures: [])
     @user = User.new user_params
     if @user.save
       session[:user_id] = @user.id
@@ -26,7 +27,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find params[:id]
     @calendars = @user.calendars
-    @projects = Project.all 
+    @projects = Project.all
   end
 
 end

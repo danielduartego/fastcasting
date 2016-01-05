@@ -22,11 +22,24 @@
                   <div class="content">
                     <div class="header"><%= user.full_name %></div>
                     <div class="meta">
-                      <span class="price">Talents</span>
+                      <span class="price">Agency: Talents</span>
                       <span class="stay"> </span>
                     </div>
-                    <div class="description">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <br>
+                    <div>
+                      <table border="0" style="width:100%" cellpadding="5px" cellspacing="3">
+                    	<tr>
+                    		<td><p class="sub header"><strong>Gender:</strong> <%= user.gender %></p></td>
+                    		<td><p class="sub header"><strong>Eyes:</strong> <%= user.eyes %></p></td>
+                    		<td><p class="sub header"><strong>Hair:</strong> <%= user.hair %></p></td>
+                    	</tr>
+                    	<tr>
+                    		<td><p class="sub header"><strong>Weight:</strong> <%= user.weight %></p></td>
+                    		<td><p class="sub header"><strong>height:</strong> <%= user.height %></p></td>
+                    		<td></td>
+                    	</tr>
+                    </table>
+
                     </div>
                   </div>
                 </div>
@@ -87,43 +100,44 @@
             <div class="col-md-3">
 
 
-                <div class="ui basic fluid floating button dropdown">
-                  <a class="dropdown-toggle" data-toggle="dropdown"
-                  role="button" aria-haspopup="true" aria-expanded="false">Add to project</a>
+                <div class="inverted ui fluid floating green button dropdown">
+                  <div class="dropdown-toggle" data-toggle="dropdown"
+                  role="button" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-plus-circle"> </i> &nbsp; &nbsp; Add to Project</div>
                   <ul class="dropdown-menu">
-
                     <% (@projects.for_dates(user.bookable_dates)).each do |project|%>
                       <li><a><%= link_to project.name, project_bookings_path(project,
                               params: {user_id: user}), method: :post %></a></li>
                     <% end %>
-
                   </ul>
+                </div>
+                <br>
+                <div>
+                  <h5 class="ui header">Booked Projects</h5>
                 </div>
 
                 <div class="ui relaxed divided list">
                   <div class="item">
-                    <%# user.bookings.where(accepted true).each do |project| %>
-                    <a class="header">
-                      <%#= project.name %></a>
-                      <%# end %>
+                    <% user.bookings.where(accepted: true).each do |book| %>
+                    <div class="header">
+                      <% if book.project.shoot_date >= Time.zone.today %>
+                        <%= link_to book.project.name, book.project %>
+                        : <%= book.project.shoot_date.strftime("%m.%d") %>
+                      <% end %>
+                    </div>
+                    <br>
+                    <% end %>
                   </div>
-                </div>
+              </div>
 
             </div>
 
   <!-- ------------ calendar ------------ -->
             <div class="col-md-12">
               <hr>
-          <%= calendar number_of_days: 21, events: user.calendars do |date, calendars| %>
+          <%= calendar number_of_days: 16, events: user.calendars do |date, calendars| %>
                 <%= date.strftime("%d")%>
 
-
-                <%# calendars.each do |calendar| %>
-                  <div>
-                    <%#= calendar.name %>
-                  </div>
-
-                <%# end %>
               <% end %>
             </div>
   <!-- ------------ end of user ------------ -->

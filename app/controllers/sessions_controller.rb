@@ -1,9 +1,6 @@
 class SessionsController < ApplicationController
 
   def new
-    # if current_user
-    #   redirect_to dashboards_path
-    # end
   end
 
   def create

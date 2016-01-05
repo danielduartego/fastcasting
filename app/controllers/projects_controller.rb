@@ -29,7 +29,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project = Project.find params[:id]
     if @project.destroy
-      redirect_to dashboard_path(current_user)
+      redirect_to dashboard_path(current_user), notice: "Project deleted!"
     else
       redirect_to project_path(@project), alert: "Error"
     end

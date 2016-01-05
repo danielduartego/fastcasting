@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700");
+/*@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700");*/
 /*!
  * bootswatch v3.3.6
  * Homepage: http://bootswatch.com
@@ -3039,12 +3039,12 @@ select[multiple].input-lg {
   cursor: pointer;
   background-image: none;
   border: 1px solid;
-  border-color:  #6666ff;
+  border-color: #835CFF;
   white-space: nowrap;
-  padding: 6px 5px;
+  padding: 1px;
   /*font-size: 15px;*/
   /*line-height: 1.42857143;*/
-  border-radius: 100px;
+  border-radius: 5px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -3054,6 +3054,8 @@ select[multiple].input-lg {
 .btn-nav1 {
   display: inline-block;
   margin-bottom: 0;
+  margin-left: 10px;
+  margin-right: 25px;
   font-weight: normal;
   text-align: center;
   vertical-align: middle;
@@ -3062,13 +3064,10 @@ select[multiple].input-lg {
   cursor: pointer;
   background-image: none;
   border: 1px solid;
-  border-color:  #6666ff;
-  background-color:  #6666ff;
+  border-color:  #835CFF;
+  background-color:  #835CFF;
   white-space: nowrap;
-  padding: 6px 5px;
-  /*font-size: 15px;*/
-  /*line-height: 1.42857143;*/
-  border-radius: 100px;
+  border-radius: 5px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -3671,7 +3670,7 @@ tbody.collapse.in {
   z-index: 990;
 }
 .pull-right > .dropdown-menu {
-  right: 0;
+  right: 100;
   left: auto;
 }
 .dropup .caret,

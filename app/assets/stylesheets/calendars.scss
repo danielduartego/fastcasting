@@ -2,21 +2,21 @@
   table {
     -webkit-border-horizontal-spacing: 0px;
     -webkit-border-vertical-spacing: 0px;
-    // background-color: rgba(0, 0, 0, 0);
-    // border: 1px solid rgb(221, 221, 221);
-    // border-collapse: collapse;
-    // box-sizing: border-box;
-    // max-width: 100%;
-    // width: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0px solid rgb(221, 221, 221);
+    border-collapse: collapse;
+    box-sizing: border-box;
+    max-width: 100%;
+    width: 100%;
 
   }
 
   tr {
-    // border-collapse: collapse;
+    border-collapse: collapse;
   }
 
   th {
-    padding: 6px;
+    padding: 10px;
     border-bottom: 0px solid rgb(221, 221, 221);
     border-collapse: collapse;
     border-left: 0px solid rgb(221, 221, 221);
@@ -27,28 +27,27 @@
   }
 
   td {
-    padding: 6px;
+    padding: 15px;
     vertical-align: center;
-    // width: 14%;
-
-    border: 1px solid rgb(221, 221, 221);
+    border: 0px solid rgb(221, 221, 221);
     border-top-color: rgb(221, 221, 221);
     border-top-style: solid;
-    border-top-width: 1px;
+    border-top-width: 0px;
     border-right-color: rgb(221, 221, 221);
     border-right-style: solid;
-    border-right-width: 1px;
+    border-right-width: 0px;
     border-bottom-color: rgb(221, 221, 221);
     border-bottom-style: solid;
-    border-bottom-width: 1px;
+    border-bottom-width: 0px;
     border-left-color: rgb(221, 221, 221);
     border-left-style: solid;
-    border-left-width: 1px;
+    border-left-width: 0px;
+    border-radius: 100px;
   }
 
   .day {
-    // max-height: 50%;
-    // max-width: 50%;
+    max-height: 3%;
+    max-width: 3%;
   }
 
   .wday-0 {}
@@ -60,40 +59,63 @@
   .wday-6 {}
 
   .today {
-    background: #645CFF;
+    background-color: #512DA8;
+    border-radius: 100px;
   }
 
   .past {
     background: #DDD;
+    border-radius: 100px;
   }
-  .future {
-    background: #fff;
-  }
+
+  // .future {
+  //   background-color: #512DA8;
+  //   border-radius: 100px;
+  // }
 
   .start-date {}
 
   .prev-month {
     background: #DDD;
+    border-radius: 100px;
   }
   .next-month {
-    background: #DDD;
+    background: #eee;
+    border-radius: 100px;
   }
-  .current-month {}
+
+  .current-month {
+    background: #eee;
+    border-radius: 100px;
+  }
 
   .has-events {
+    border-radius: 100px;
     background-color: #16AB39;
   }
 
+  .have-events {
+    border-radius: 100px;
+    background-color: #000;
+  }
+
+  .has-events-booked{
+    border-radius: 100px;
+    background-color: red;
+  }
+
+
   .btn-cal-user {
-    // border-radius: 100px;
+    border-radius: 100px;
     background-color: rgba(0, 0, 0, 0);
-    // border: 1px solid;
-    border-color: rgba(0, 0, 0, 0);
+    border: 0px solid;
+    // border-color: rgba(0, 0, 0, 0);
     width: 35px;
     height: 35px;
   }
 
-  .cal-user-dash{
+
+  .cal-user-dash {
     border-radius: 100px;
     background-color: rgba(0, 0, 0, 0);
     border: 1px solid;

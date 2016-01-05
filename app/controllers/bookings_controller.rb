@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
     @booking.project = @project
     @booking.user = User.find params[:user_id]
     if @booking.save
-      redirect_to dashboard_path(current_user), notice: "Background add to the project"
+      redirect_to dashboard_path(current_user)
     else
       redirect_to dashboard_path(current_user), alert: "This background is already on this project"
     end
@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
     @project = Project.find params[:project_id]
     @booking = @project.bookings.find params[:id]
     if @booking.destroy
-      redirect_to project_path(@project), notice: "Background deleted successfully"
+      redirect_to project_path(@project)
     else
       redirect_to project_path(@project), alert: "Error"
     end

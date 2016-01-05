@@ -22,15 +22,13 @@
       <% @bookings.each do |booking| %>
       <div class="col-md-3">
         <br>
-        <div class="ui card">
+        <div class="ui fluid card">
           <div class="image">
             <%= image_tag booking.user.image.url(:card) %>
           </div>
           <div class="content">
-            <a class="header"><%= booking.user.full_name %></a>
-            <div class="meta">
-              <span class="date">Talents</span>
-            </div>
+            <h3 class="ui header"><%= link_to booking.user.full_name, user_path(booking.user) %></h3>
+            <p class="meta">Talents</p>
           </div>
           <div class="extra content">
             <% if booking.accepted? %>

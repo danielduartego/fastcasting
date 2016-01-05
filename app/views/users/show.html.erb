@@ -1,6 +1,6 @@
-<br>
-<div class="col-md-4"></div>
-<div class="col-md-4">
+
+<div class="col-md-3"></div>
+<div class="col-md-6">
   <div class="text-center">
     <% if @user.image.present? %>
     <%= image_tag @user.image.url(:medium), class: "img-circle" %>
@@ -9,7 +9,7 @@
   <h2 class="text-center"> <%= @user.full_name.upcase %> </h2>
 
 <% if current_user.role.nil? %>
-  <div>
+  <div class="text-center">
     <%= month_calendar events: @calendars do |date, calendars| %>
     <% calendar = calendars.first || Calendar.new %>
     <% method   = calendar.persisted? ? :delete : :post %>
@@ -24,11 +24,11 @@
 <% end %>
 
 <!-- mostrar em quais projetos as datas do usuario match com o show -->
-<h3>Potencial Bookings</h3>
-<% (@projects.for_dates(@user.bookable_dates)).each do |project|%>
-  <li>Project: <%= project.name %> - Date: <%= project.shoot_date %></li>
-<% end %>
-
+<!-- <h3>Potencial Bookings</h3> -->
+<%# (@projects.for_dates(@user.bookable_dates)).each do |project|%>
+  <!-- <li>Project: <%#= project.name %> - Date: <%#= project.shoot_date %></li> -->
+<%# end %>
 </div>
 
-<div class="col-md-4"></div>
+
+<div class="col-md-3"></div>

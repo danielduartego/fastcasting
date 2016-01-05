@@ -1,6 +1,6 @@
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
+    <div class="">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -19,10 +19,10 @@
                     <a href="/"></a>
                 </li>
                 <li>
-                    <a class="/" href="/">Services</a>
+                    <a class="/" href="/">Product</a>
                 </li>
                 <li>
-                    <a class="/" href="/">Contact</a>
+                    <a class="/" href="/">About</a>
                 </li>
                 <li>
                   <a href="/" class="btn-nav" data-toggle="modal">Log in</a>
@@ -39,7 +39,7 @@
 
 <div class="col-md-3"></div>
 
-<!-- ------------------ agent and diretor signup ------------------------ -->
+<!-- ------------------ agent, director and background signup ------------------------ -->
 <div class="col-md-6">
   <br>
   <br>
@@ -117,6 +117,26 @@
                 <div class="form-group">
                   <%= f.label :password_confirmation %>
                   <%= f.password_field :password_confirmation, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :gender %>
+                  <%= f.text_field :gender, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :hair %>
+                  <%= f.text_field :hair, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :eyes %>
+                  <%= f.text_field :eyes, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :height %>
+                  <%= f.number_field :height, :class => 'text_field', :step => 'any', class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :weight %>
+                  <%= f.number_field :weight, class: "form-control" %>
                 </div>
                 <div class="form-group">
                   <%= f.label :image  %>
