@@ -108,6 +108,7 @@
                     <% (@projects.for_dates(user.bookable_dates)).each do |project|%>
                       <li><a><%= link_to project.name, project_bookings_path(project,
                               params: {user_id: user}), method: :post %></a></li>
+                              
                     <% end %>
                   </ul>
                 </div>
