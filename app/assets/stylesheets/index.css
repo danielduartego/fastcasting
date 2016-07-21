@@ -250,7 +250,7 @@ ul.social-buttons li a:hover,ul.social-buttons li a:focus,ul.social-buttons li a
 
 .btn:focus,.btn:active,.btn.active,.btn:active:focus{outline:0}
 
-.portfolio-modal .modal-content{border-radius:0;background-clip:border-box;-webkit-box-shadow:none;box-shadow:none;border:;height:100%;width:100%;padding:100px;margin-top:50px;text-align:left}
+.portfolio-modal .modal-content{border-radius:0;background-clip:border-box;-webkit-box-shadow:none;box-shadow:none;height:100%;width:100%;padding:100px;margin-top:50px;text-align:left}
 
 .portfolio-modal .modal-content h2{margin-bottom:15px;font-size:3em}
 
